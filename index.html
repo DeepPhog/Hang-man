@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="font-family:sans-serif">
+    <h1 id="won" style="display: none; justify-content: center;">YOU WON</h1>
+    <center id="center">
+        <h1 id="hang_man">Hang man</h1>
+        <div id="startarea">
+            <div id="startbtns">
+                <h2>Categories</h2>
+            </div>
+            <div id="options">
+                <input type="checkbox" id="check" name="checkbox">
+                <label for="checkbox">Custom lives</label>
+                <br>
+                <input type="number" id="num" placeholder="Lives" style="display: none">
+                <p id="red" style="display: none;">Can not have less then 1 life</p>
+                <h3>Info</h3>
+                <p>You can see the word in the console</p>
+            </div>
+        </div>
+    </center>
+    <div id="start" style="display: none;">
+        <center>
+            <!-- HANG MAN -->
+            <div id="show">
+                <!-- <img src="" alt="hangman"> -->
+            </div>
+            <!-- HANG MAN -->
+        </center>
+        <div id="cont"></div>
+        <br>
+        <div id="kscont">
+            <div id="showcont"><u id="showlife"></u> lives left
+            </div>
+
+            <div id="key"></div>
+        </div>
+    </div>
+</body>
+<script src="index.js"></script>
+
+</html>
