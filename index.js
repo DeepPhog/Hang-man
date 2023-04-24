@@ -34,6 +34,7 @@ var wordlengt
 var spaceid
 var checked
 var hangman
+var word
 var lost
 var man
 var spacenum = 0
@@ -82,7 +83,7 @@ function getID(clicked_id) {
   var cbtn = clicked_id;
   var cat = categories[cbtn].Values;
   var random = getRandomInt(cat.length);
-  var word = cat[random];
+  word = cat[random];
   var split = word.split("");
   split.forEach((list) => {
     if (list == " ") {
@@ -101,10 +102,10 @@ function getID(clicked_id) {
     }
     i++;
   });
-  keyboard(word);
+  keyboard();
   console.log(word);
 }
-function keyboard(word) {
+function keyboard() {
   wordlengt = word.length - spacenum
   var hm = document.createElement("div")
   cent.appendChild(hm)
@@ -122,7 +123,7 @@ function keyboard(word) {
         if (letter == word.toUpperCase().charAt(j)) {
           var change = document.querySelector("#id" + j);
           change.innerHTML = letter;
-          checkforwin(word);
+          checkforwin();
           //if wrong letter
         } else {
           l++
@@ -153,7 +154,7 @@ function animation() {
   man++
 
 }
-function checkforwin(word) {
+function checkforwin() {
   var winnum = 0;
   for (let i = 0; i < word.length; i++) {
     var check = document.querySelector("#id" + i);
@@ -166,12 +167,20 @@ function checkforwin(word) {
   }
 }
 function win(lost) {
+
   won.style.display = "flex";
   key.style.display = "none";
   hman.style.display = "none";
   showc.innerHTML = "<button id=hide  onclick=location.reload()>Try again</button>"
   if (lost) {
     won.innerText = "GAME OVER"
+    for (let i = 0; i < word.length; i++) {
+      var red = document.querySelector("#id" + i);
+      if (red.innerText == "") {
+        red.style.color = "red"
+        red.innerText = word[i].toUpperCase()
+      }
+    }
   }
 }
 //Keyboard end
